@@ -22,7 +22,9 @@ export const useFoodsStore = create<State & Actions>((set) => ({
   fetchData: async () => {
     set({ isLoading: true });
     try {
-      const response = await fetch("http://localhost:4000/foods");
+      const response = await fetch(
+        "https://backend-talenthub.vercel.app/foods"
+      );
       const result = await response.json();
       set({ foods: result.data, isLoading: false });
     } catch (error) {
